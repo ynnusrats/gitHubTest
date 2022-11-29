@@ -12,6 +12,11 @@ import * as playerData from "./playerData.js";
 
 //讓function從function移除的方式
 
+//11/29，我應該弄兩塊天使板，確保玩家的死亡是反應問題而非遊戲問題
+//關卡系統要加入(注意速度影響彈跳觀看程度)，排行榜有緣再說
+//還有UI改進(更明確的血量?)
+//操控教學
+
 
 export function gameStartLoad() {
     var ca2d = document.getElementById("ca").getContext("2d"); //抓取畫布

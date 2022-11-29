@@ -475,6 +475,7 @@ function StartGameLogic(ca2d) {
 
 }
 
+//Math.random()有*以後,機率不平均...嗎?
 
 export function floorCreatLogic() {   //1-8到2-1會過遠,斷層 好像是良性BUG,我覺得暫時不用動
     let i = 0;
@@ -485,8 +486,8 @@ export function floorCreatLogic() {   //1-8到2-1會過遠,斷層 好像是良�
                 firstTime.firstTime = true;
                 floorArr[i].isFloorAlive = true;  //確定生成
                 floorArr[i].floorType = Math.floor(Math.random() * 4); //決定地板種類
-                floorArr[i].floorPosY = hi;  //決定地板Y軸  //他跑久了會疊起來,怪怪的
-                floorArr[i].floorPosX = Math.floor(Math.random() * 1131);  //決定地板x軸
+                floorArr[i].floorPosY = hi;  //決定地板Y軸  
+                floorArr[i].floorPosX = Math.floor(Math.random() * 1131);  //決定地板x軸  //天使板應該在這裡+IF
                 hi+=100;
             } else if (floorArr[i].isFloorAlive == true &&
                 floorArr[i].floorPosY < -50) {

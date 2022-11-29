@@ -68,7 +68,7 @@ export var playerMoveSpeed = {};
 
 Object.defineProperties(playerMoveSpeed, {  //必須進物件設定,把此物件改成可修改writable:true,不然其他腳本改不到幹
     "xspeed": {
-        value: 6.4,
+        value: 7.5,
         writable: true
     },
     "yspeed": {

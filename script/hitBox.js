@@ -166,7 +166,7 @@ function rockFloorHitbox(i) {
     gravityG.gg = 0;  
     playermove.playerPosition.ypos = floor.floorArr[i].floorPosY - 80;  //將玩家好好站到平台上
     if(floor.floorArr[i].floorHeight>0){  //圖片慢慢變細
-        floor.floorArr[i].floorHeight-=0.5;
+        floor.floorArr[i].floorHeight-=0.75;
     }
     if (onFloor == false) {  //這邊碰到底板指觸發一次
         onFloor = true;
@@ -177,7 +177,7 @@ function rockFloorHitbox(i) {
         fuckRock = setInterval(function(){  //經過1秒後,下調25
             //playermove.playerPosition.ypos+=25;
             floor.floorArr[i].floorPosX=2000;//將板子實際位置移到千里之外(x),y不會動
-        },1000)
+        },750)  //1000
         playerData.playData.score += 1;
     }
 }
