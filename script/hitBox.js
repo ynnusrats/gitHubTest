@@ -25,6 +25,10 @@ Object.defineProperties(gravityG, {
     "isPlayerOnFloor": {
         value: false,
         writable: true
+    },
+    "bushUpForce":{   //草的跳躍力
+        value: -7,
+        writable: true
     }
 
 });
@@ -191,7 +195,7 @@ function bushFloorHitbox(i) {
         if (playerData.playData.hp < 10) {
             playerData.playData.hp += 1;
         }
-        gravityG.gg =  -8.5; //-7;這樣會跳不上2樓  //8.5
+        gravityG.gg = gravityG.bushUpForce; //-7;這樣會跳不上2樓  //8.5
         console.log(gravityG.gg);
 
         

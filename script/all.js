@@ -13,7 +13,6 @@ import * as playerData from "./playerData.js";
 //讓function從function移除的方式
 
 //11/29，我應該弄兩塊天使板，確保玩家的死亡是反應問題而非遊戲問題
-//關卡系統要加入(注意速度影響彈跳觀看程度)，排行榜有緣再說
 //還有UI改進(更明確的血量?)
 //操控教學
 
@@ -28,6 +27,7 @@ function gameupdate(ca2d) {         //每秒執行60次
 
     if (ui.uiLogicValue.isGameStart == true) {
         hitBox.gravity();
+        playerData.unlimitedStageSystem();
         floor.floorCreatLogic();
         hitBox.hitBoxTest(); //初始板塊的hitBox
         hitBox.hitBoxLogic(ca2d);
