@@ -480,14 +480,14 @@ function StartGameLogic(ca2d) {
 export function floorCreatLogic() {   //1-8到2-1會過遠,斷層 好像是良性BUG,我覺得暫時不用動
     let i = 0;
     let hi = 840;
-    if (firstTime.firstTime == false) {
+    if (firstTime.firstTime == false) {  //第一次生成
         for (i = 0; i < 8; i++) {
             if (floorArr[i].isFloorAlive == false) {  //避免不要重複生成
                 firstTime.firstTime = true;
                 floorArr[i].isFloorAlive = true;  //確定生成
                 floorArr[i].floorType = Math.floor(Math.random() * 4); //決定地板種類
                 floorArr[i].floorPosY = hi;  //決定地板Y軸  
-                floorArr[i].floorPosX = Math.floor(Math.random() * 1131);  //決定地板x軸  //天使板應該在這裡+IF
+                floorArr[i].floorPosX = Math.floor(Math.random() * 1131);  //決定地板x軸
                 hi+=100;
             } else if (floorArr[i].isFloorAlive == true &&
                 floorArr[i].floorPosY < -50) {
@@ -503,7 +503,20 @@ export function floorCreatLogic() {   //1-8到2-1會過遠,斷層 好像是良�
                 floorArr[i].isFloorAlive = true;  //確定生成
                 floorArr[i].floorType = Math.floor(Math.random() * 4); //決定地板種類
                 floorArr[i].floorPosY = hi;  //決定地板Y軸  //他跑久了會疊起來,怪怪的
-                floorArr[i].floorPosX = Math.floor(Math.random() * 1131);  //決定地板x軸
+                
+                if(i==3 || i==7){
+                    //天使板
+                    //在玩家位置+-150
+                    floorArr[i].floorPosX = playermove.playerPosition.xpos-150+Math.floor(Math.random() * 301);
+                    //如果玩家太靠左或太靠右，天使板會在畫面外(但這很極端)，有機會考慮修正
+                    floorArr[i].floorType = 0;
+                    console.log(i);
+                }else{
+                    floorArr[i].floorPosX = Math.floor(Math.random() * 1131);  //決定地板x軸  //天使板3、7
+                }
+
+                //floorArr[i].floorPosX = Math.floor(Math.random() * 1131);  //決定地板x軸  //天使板3、7
+
             } else if (floorArr[i].floorPosY < -50) {
                 floorArr[i].floorWidth=150;  //回歸正常大小
                 floorArr[i].floorHeight=40;
