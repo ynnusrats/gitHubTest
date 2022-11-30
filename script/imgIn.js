@@ -23,22 +23,22 @@ export var topSpikesArr=[];
 var playerIdleRight1 = new Image();
 playerIdleRight1.src = "img/player/idle/playerIdleRight1.png";
 playerAnimationArr.push(playerIdleRight1);
-console.log("pic1Done");
+
 
 var playerIdleRight2 =new Image();
 playerIdleRight2.src = "img/player/idle/playerIdleRight2.png";
 playerAnimationArr.push(playerIdleRight2);
-console.log("pic1Done");
+
 
 var playerIdleRight3 =new Image();
 playerIdleRight3.src = "img/player/idle/playerIdleRight3.png";
 playerAnimationArr.push(playerIdleRight3);
-console.log("pic1Done");
+
 
 var playerIdleRight4 =new Image();
 playerIdleRight4.src = "img/player/idle/playerIdleRight4.png";
 playerAnimationArr.push(playerIdleRight4);
-console.log("pic1Done");
+
 
 var playerIdleLeft1 = new Image();
 playerIdleLeft1.src = "img/player/idle/playerIdleLeft1.png";

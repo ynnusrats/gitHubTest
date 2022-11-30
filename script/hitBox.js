@@ -196,7 +196,6 @@ function bushFloorHitbox(i) {
             playerData.playData.hp += 1;
         }
         gravityG.gg = gravityG.bushUpForce; //-7;這樣會跳不上2樓  //8.5
-        console.log(gravityG.gg);
 
         
         playerData.playData.score += 1;

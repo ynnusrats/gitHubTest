@@ -19,8 +19,8 @@ import * as playerData from "./playerData.js";
 
 export function gameStartLoad() {
     var ca2d = document.getElementById("ca").getContext("2d"); //抓取畫布
-    console.log("gameStartLoad");
     setInterval(gameupdate, 1000 / 63, ca2d); //開始遊戲
+    console.log("到底他有沒有pubin上去R?");
 }
 
 function gameupdate(ca2d) {         //每秒執行60次

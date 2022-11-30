@@ -509,7 +509,7 @@ export function floorCreatLogic() {   //1-8到2-1會過遠,斷層 好像是良�
                 floorArr[i].floorHeight=40;
                 floorArr[i].isFloorAlive = false;
             } else {
-                //console.log(floorCreatNumber);
+                
             }
         }
     }
