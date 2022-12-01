@@ -58,6 +58,7 @@ export function stageSystem(){
 
 export function unlimitedStageSystem(){
     let r=0.025;  //變數
+    if(playData.score<100){
     floor.floorUpSpeed.floorUpSpeed = 2+playData.score*r;
-    hitBox.gravityG.bushUpForce = -7-playData.score*r;
+    hitBox.gravityG.bushUpForce = -7-playData.score*r;}
 }
