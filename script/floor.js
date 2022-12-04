@@ -1,7 +1,7 @@
 import * as playermove from "./playermove.js";
 import * as imgIn from "./imgIn.js";
+import * as playerData from "./playerData.js";
 
-//如果可以,我一定生成一塊,玩家可以在極端位置採到的方塊
 
 
 //
@@ -509,7 +509,13 @@ export function floorCreatLogic() {   //1-8到2-1會過遠,斷層 好像是良�
                     //在玩家位置+-150
                     floorArr[i].floorPosX = playermove.playerPosition.xpos-150+Math.floor(Math.random() * 301);
                     //如果玩家太靠左或太靠右，天使板會在畫面外(但這很極端)，有機會考慮修正
-                    floorArr[i].floorType = 0;
+                    if(playerData.playData.score>50 && i==3){
+                        floorArr[i].floorType = 1;
+                    }else if(playerData.playData.score>100){
+                        floorArr[i].floorType = 1;
+                    }else{
+                        floorArr[i].floorType = 0;
+                    }
                     console.log(i);
                 }else{
                     floorArr[i].floorPosX = Math.floor(Math.random() * 1131);  //決定地板x軸  //天使板3、7

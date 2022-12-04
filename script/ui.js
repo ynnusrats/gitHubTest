@@ -39,7 +39,7 @@ function gmaeGo(e) {
             playermove.playerPosition.ypos = 10;
             playerData.playData.hp = 10;
             hitBox.gravityG.gg = 0;
-            playerData.playData.score = 0;
+            playerData.playData.score = 0;  //可以更改初始直測試
 
 
             uiLogicValue.isGameStart = true;

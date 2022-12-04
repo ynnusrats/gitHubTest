@@ -13,9 +13,11 @@
 
 <body>
   <canvas id="ca" width=1280 height=720></canvas>
+  <div style="width:100%;"></div>
+  <h1>A 向左 / D 向右</h1>
   <script type="module">
     import { gameStartLoad } from "./script/all.js"; //除了選定函數會導入,也會自行導入腳本外的東西,還不用export,bug why?
-                                                     //他會把ALL都讀取完,再跑下一條
+    //他會把ALL都讀取完,再跑下一條
     //window.onload = gameStartLoad();
     gameStartLoad();
   </script>

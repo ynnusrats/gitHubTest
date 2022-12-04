@@ -8,6 +8,18 @@ var onFloor = false;
 
 var fuckRock;
 
+export var rockData = {};
+Object.defineProperties(rockData, {
+    "rockImgDownSpeed": {
+        value: 0.75,
+        writable: true
+    },
+    "rockDieSpeed": {
+        value: 750,
+        writable: true
+    }
+});
+
 export var gravityG = {};
 Object.defineProperties(gravityG, {
     "g": {
@@ -26,7 +38,7 @@ Object.defineProperties(gravityG, {
         value: false,
         writable: true
     },
-    "bushUpForce":{   //草的跳躍力
+    "bushUpForce": {   //草的跳躍力
         value: -7,
         writable: true
     }
@@ -114,23 +126,23 @@ export function hitBoxLogic(ca2d) {
     //天花板擠壓
     if (playermove.playerPosition.ypos + 40 < 10) {  //如果碰到
         playermove.playerPosition.ypos += 50;  //就擠他30
-        gravityG.gg=0;   //避免當時gg為正+,狂刺猛刺
+        gravityG.gg = 0;   //避免當時gg為正+,狂刺猛刺
         playerData.playData.hp -= 3;
         if (playerData.playData.hp < 0) {  //如果血少於0,設定為0
             playerData.playData.hp = 0;
         }
-        
+
     }
 
 
     //死亡線
     if (playermove.playerPosition.ypos > 820) {
-        playerData.playData.hp=0;
+        playerData.playData.hp = 0;
     }
 
 
-    if(playerData.playData.hp==0 && ui.uiLogicValue.isGameStart==true ){
-        ui.uiLogicValue.isGameStart=false; 
+    if (playerData.playData.hp == 0 && ui.uiLogicValue.isGameStart == true) {
+        ui.uiLogicValue.isGameStart = false;
     }
 }
 
@@ -167,10 +179,10 @@ function spikesFloorHitbox(i) {
 }
 
 function rockFloorHitbox(i) {
-    gravityG.gg = 0;  
+    gravityG.gg = 0;
     playermove.playerPosition.ypos = floor.floorArr[i].floorPosY - 80;  //將玩家好好站到平台上
-    if(floor.floorArr[i].floorHeight>0){  //圖片慢慢變細
-        floor.floorArr[i].floorHeight-=0.75;
+    if (floor.floorArr[i].floorHeight > 0) {  //圖片慢慢變細
+        floor.floorArr[i].floorHeight -= rockData.rockImgDownSpeed;  //難度上升，這裡也要改
     }
     if (onFloor == false) {  //這邊碰到底板指觸發一次
         onFloor = true;
@@ -178,17 +190,16 @@ function rockFloorHitbox(i) {
             playerData.playData.hp += 1;
         }
 
-        fuckRock = setInterval(function(){  //經過1秒後,下調25
-            //playermove.playerPosition.ypos+=25;
-            floor.floorArr[i].floorPosX=2000;//將板子實際位置移到千里之外(x),y不會動
-        },750)  //1000
+        fuckRock = setInterval(function () {  //經過1秒後,下調25
+            floor.floorArr[i].floorPosX = 2000;//將板子實際位置移到千里之外(x),y不會動
+        }, rockData.rockDieSpeed)  //難度上升，這裡也要改
         playerData.playData.score += 1;
     }
 }
 
 function bushFloorHitbox(i) {
     gravityG.gg = 0;  //在平台上時,重力引響為0
-    playermove.playerPosition.ypos = floor.floorArr[i].floorPosY-100;  //將玩家好好站到平台上,這個往上調一點,避免重複沾到
+    playermove.playerPosition.ypos = floor.floorArr[i].floorPosY - 100;  //將玩家好好站到平台上,這個往上調一點,避免重複沾到
 
     if (onFloor == false) {  //這邊碰到底板指觸發一次
         onFloor = true;
@@ -197,7 +208,7 @@ function bushFloorHitbox(i) {
         }
         gravityG.gg = gravityG.bushUpForce; //-7;這樣會跳不上2樓  //8.5
 
-        
+
         playerData.playData.score += 1;
     }
 }
