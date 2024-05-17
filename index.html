@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<script>
+  /*筆記區
+
+  */
+</script>
+<html>
+
+<head>
+  <link rel="stylesheet" href="ccsStyle/main.css">
+  <title>demo</title>
+</head>
+
+<body>
+  <canvas id="ca" width=1280 height=720></canvas>
+  <script type="module">
+    import { gameStartLoad } from "./script/all.js"; //除了選定函數會導入,也會自行導入腳本外的東西,還不用export,bug why?
+                                                     //他會把ALL都讀取完,再跑下一條
+    //window.onload = gameStartLoad();
+    gameStartLoad();
+  </script>
+
+</body>
+
+</html>
